@@ -2,7 +2,7 @@
 
 Developed by **Patcex Studio** (MIT License)
 
-VirtRAM (`vrc`) is a radical reimagining of the computing paradigm that **completely eliminates physical Random Access Memory (RAM)** for read operations. Instead of storing and fetching static bytes from physical silicon, VirtRAM treats the entire memory space as an infinite coordinate system (\(100^{100^{100}}\)) and calculates data on-the-fly using a high-throughput, deterministic sliding window approach.
+VirtRAM (`vrc`) is a radical reimagining of the computing paradigm that **completely eliminates physical Random Access Memory (RAM)** for read operations. Instead of storing and fetching static bytes from physical silicon, VirtRAM treats the entire memory space as an infinite coordinate system \(100^{100^{100}}\) and calculates data on-the-fly using a high-throughput, deterministic sliding window approach.
 
 This repository hosts the architectural specifications, compiler toolchain concepts, and core mathematical proofs for the VirtRAM ecosystem, designed for seamless integration with **AMD ROCm / HIP** and modern vector-compute hardware (SIMD/TPU/NPU).
 
@@ -31,7 +31,7 @@ Based on early architectural simulations executing the O(1) spatial lookup core 
 | :--- | :--- | :--- |
 | **Available Capacity** | Restricted by hardware capacity (e.g., 32 GB) | **Infinite Space** (\(100^{100^{100}}\)) |
 | **Access Latency** | ~60ns – 80ns (Bus bottleneck) | **~0.75ns** (Internal crystal execution) ⚡ |
-| **Target Throughput** | ~40 – 100 GB/s | **Hardware-bound** (1.5–3 GB/s CPU / 1–3 TB/s GPU) |
+| **Target Throughput** | ~40 – 100 GB/s | **Compute-bound** (Limited only by ALU/Tensor core FLOPs) |
 | **Hardware BOM Cost** | Expensive silicon footprint (\$50–\$500+) | **\$0** (Pure algorithmic compute) |
 
 ---
@@ -85,7 +85,6 @@ if __name__ == "__main__":
 
 - [ ] **Phase 1 (Current):** Open-source mathematical RFC specification and target benchmarks.
 - [ ] **Phase 2:** Developing the standalone `vrc` (VirtRAM Compiler) prototype written in Rust/C.
-- [ ] **Phase 3:** Creating `VirtLang` syntax abstractions for memory-free variables.
 - [ ] **Phase 4:** Porting the core sliding-window function into AMD ROCm/HIP kernel modules to harness massive tensor core parallelization.
 
 ---
